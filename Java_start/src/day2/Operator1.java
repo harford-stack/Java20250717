@@ -7,7 +7,7 @@ public class Operator1 {
 		// 대입연산자
 		
 		int num1 = 10;
-//		num1 = num1 + 5; // 둘이 같음
+//		num1 = num1 + 5; // 둘이 같음  
 		num1 += 5; // 둘이 같음
 		System.out.println(num1);
 		
