@@ -16,20 +16,34 @@ public class Array1 {
 		
 		// 점수가 평균을 넘는 과목들을 출력
 		// 결과 : 평균이 넘는 과목은 java, javascript, jsp 입니다
-		int sum = 0;
-		int avg = 0;
-		for(int i=0; i<scoreArr.length; i++) {
-			sum += scoreArr[i];
-		}
-		avg = sum / scoreArr.length;
+//		int sum = 0;
+//		int avg = 0;
+//		for(int i=0; i<scoreArr.length; i++) {
+//			sum += scoreArr[i];
+//		}
+//		avg = sum / scoreArr.length;
+//		
+//		System.out.print("평균이 넘는 과목은 ");
+//		for(int i=0; i<subjectArr.length; i++) {
+//			if(scoreArr[i] > avg) {
+//				System.out.print(subjectArr[i] + " ");
+//			}
+//		}
+//		System.out.println("입니다.");
 		
-		System.out.print("평균이 넘는 과목은 ");
-		for(int i=0; i<subjectArr.length; i++) {
+		int sum = 0;
+		for(int score : scoreArr) {
+			sum += score;
+		}
+		double avg = (double) sum / scoreArr.length;
+		
+		String subStr = "";
+		for(int i=0; i<scoreArr.length; i++) {
 			if(scoreArr[i] > avg) {
-				System.out.print(subjectArr[i] + " ");
+				subStr += subjectArr[i] + " "; //문자열 이어 붙이기
 			}
 		}
-		System.out.println("입니다.");
+		System.out.println("평균이 넘는 과목은 " + subStr + "입니다.");
 
 	}
 
