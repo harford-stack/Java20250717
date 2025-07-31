@@ -67,11 +67,12 @@ public class Array6 {
 		int arr3[][] = new int[4][5];
 		
 		for(int i=0; i<arr3.length; i++) {
-			ArrayFunc.randomArr(arr3.length, 10, 50);
+			arr3[i] = ArrayFunc.randomArr(5, 10, 50);
 		}
-		System.out.println(Arrays.toString(arr3));
 		
-		
+		for(int i=0; i<arr3.length; i++) {
+			System.out.println(Arrays.toString(arr3[i]));
+		}
 
 	}
 

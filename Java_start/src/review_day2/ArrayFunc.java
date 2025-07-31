@@ -5,6 +5,13 @@ import java.util.Random;
 
 public class ArrayFunc {
 	
+	public static final int EVEN = 0;
+	public static final int ODD = 1;
+	
+	
+	// 객체 생성 불가능하도록 생성자를 private로 선언
+	private ArrayFunc() {}
+	
 	// 배열의 모든 값을 음수로 만드는 메소드
 	// parameter1 : 정수형 배열
 	public static void minusArr(int[] arr) {
@@ -144,6 +151,22 @@ public class ArrayFunc {
 		minusArr(arr);
 		
 	}
+	
+	
+	// 배열에서 홀수() 짝수()의 개수를 리턴해주는 메소드
+		// parameter1 : 정수형 배열
+		// parameter2 : 홀수 짝수 구분 문자열
+		// **kind에 0, 1 외의 값에 대한 예외처리 필요**
+		public static int arrLength(int[] arr, int kind) {
+			int size = 0;
+			int num = kind;
+			for(int i=0; i<arr.length; i++) {
+				if(arr[i] % 2 == num) {
+					size++;
+				}
+			}
+			return size;
+		}
 
 	
 
