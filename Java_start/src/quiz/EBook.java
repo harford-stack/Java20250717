@@ -2,10 +2,10 @@ package quiz;
 
 public class EBook extends Book{
 	
-	double fileSize;
+	private double fileSize;
 	
 	public EBook() {
-		this("Unknown", "Unknown", 0);
+		this("Unknown", "Unknown", 0.0);
 	}
 
 	public EBook(String title, String author, double fileSize) {
