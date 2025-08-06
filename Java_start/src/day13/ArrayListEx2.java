@@ -16,7 +16,7 @@ public class ArrayListEx2 {
 		list.add(park);
 		
 		for(int i=0; i<list.size();	i++) {
-//			Human human list.get(i);
+//			Human human = list.get(i);
 //			System.out.println(human.getName());
 			System.out.println(list.get(i).getName());
 		}
