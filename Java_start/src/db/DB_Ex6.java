@@ -14,18 +14,19 @@ public class DB_Ex6 {
 		// 없으면 '로그인 실패!' 출력
 		
 		Scanner s = new Scanner(System.in);
+		DBClass db = new DBClass();
+		
 		System.out.print("아이디 : ");
 		String id = s.next();
-//		System.out.print("비밀번호 : ");
-//		String pwd = s.next();
+		System.out.print("비밀번호 : ");
+		String pwd = s.next();
 		
-		DBClass db = new DBClass();
-		String sql = "SELECT * FROM TBL_USER";
-		ResultSet rs = db.stmt.executeQuery(sql);
-		System.out.println(rs.next());
+		String query = "SELECT * FROM TBL_USER WHERE USERID = '" + id + "' AND PASSWORD = '" + pwd + "'";
+		System.out.println(query);  // 위 명령문 중간 확인
 		
-		boolean check = rs.next();
-		if(check = true) {
+		ResultSet rs = db.stmt.executeQuery(query);
+		
+		if(rs.next()) {
 			System.out.println("로그인 성공");
 		} else {
 			System.out.println("로그인 실패");
