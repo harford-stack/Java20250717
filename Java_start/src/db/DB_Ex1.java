@@ -28,7 +28,7 @@ public class DB_Ex1 {
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 
-			while (rs.next()) {
+			while (rs.next()) { 
 				System.out.print(rs.getString("STU_NAME") + "\t");
 				System.out.println(rs.getString("STU_DEPT"));
 			}
