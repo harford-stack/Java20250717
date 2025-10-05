@@ -45,10 +45,23 @@ public class WordQuiz_Teacher {
 		
 		System.out.println("수도 문제 풀이 ! [-1을 입력하면 종료됩니다.]");
 		System.out.println("현재 총 " + quizList.size() + "문제가 있습니다!");
+		System.out.println("최대 10문제까지 출제됩니다. 한 문제당 10점입니다.");
 		
 		// 2. 중복된 문제 방지를 위해 출제된 문제의 index를 보관할 map 생성
 		HashMap<Integer, Integer> keyTable = new HashMap<>();
+		
+		// 문제 수를 카운트하는 변수 추가
+		int quizCount = 0;
+		// 정답을 맞힐 때마다 점수를 누적하는 변수 추가
+		int score = 0;
+		
 		while(true) {
+			// 최대 10문제까지만 출제하도록 조건 추가
+			if(quizCount >= 10) {
+				System.out.println("10문제가 모두 출제되었습니다.");
+				break;
+			}
+			
 			// 3. 랜덤한 문제 출제를 위해 리스트에 랜덤으로 접근하기 위해 랜덤한 숫자 생성
 			int ranNum = ran.nextInt(quizList.size());
 			
@@ -79,6 +92,9 @@ public class WordQuiz_Teacher {
 				capital = quiz.get(key);
 			}
 			
+			// 문제 카운트 증가
+			quizCount++;
+			
 			// 8. country에 있는 문제 출제
 			System.out.print("[" + country + "] 의 수도는? >> ");
 			String answer = s.next();
@@ -89,11 +105,34 @@ public class WordQuiz_Teacher {
 				break;
 			} else if(answer.equals(capital)) { // 10. 사용자가 답변한 값과 capital이 같으면 정답
 				System.out.println("정답!");
+				// 정답이면 10점 추가
+				score += 10;
 			} else { // 11. 다른 답을 입력했으면 오답
 				System.out.println("오답 ! 정답은 : " + capital);
 			}
 		}
+		// 게임 종료 시 최종 점수 출력
+		System.out.println("\n===== 게임 결과 =====");
+		System.out.println("총 문제 수: " + quizCount + "문제");
+		System.out.println("맞힌 문제 수: " + (score / 10) + "문제");
+		System.out.println("최종 점수: " + score + "점");
 		
+		// 점수에 따른 메시지 출력
+		if(quizCount > 0) { // 적어도 한 문제 이상 풀었을 경우
+			double correctRate = (double)score / (quizCount * 10) * 100;
+			System.out.printf("정답률: %.1f%%\n", correctRate);
+			
+			if(correctRate == 100) {
+				System.out.println("축하합니다! 모든 문제를 맞추셨습니다!");
+			} else if(correctRate >= 80) {
+				System.out.println("훌륭합니다! 대부분의 수도를 알고 계시네요!");
+			} else if(correctRate >= 60) {
+				System.out.println("좋은 성적이에요! 조금만 더 공부해보세요.");
+			} else {
+				System.out.println("더 많은 국가와 수도를 공부해보세요!");
+			}
+		}
+		
+		s.close(); // Scanner 자원 해제
 	}
-
 }

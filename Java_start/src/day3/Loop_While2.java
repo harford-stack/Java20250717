@@ -27,7 +27,8 @@ public class Loop_While2 {
 				count++;
 			} else if((x*y) != answer) {
 				System.out.println("오답");
-			} else if(count==5) {
+			}
+			if(count == 5) {
 				break;
 			}
 		}
